@@ -1,0 +1,28 @@
+<!-- log.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>แสดง Log</title>
+</head>
+<body>
+  <h1>Log ของแอปพลิเคชัน</h1>
+  <pre id="log"></pre>
+
+  <script>
+    // สร้างฟังก์ชันเพื่อโหลด log จากเซิร์ฟเวอร์
+    function loadLog() {
+      fetch('/log')
+        .then(response => response.text())
+        .then(data => {
+          // แสดง log ใน pre element
+          const logElement = document.getElementById('log');
+          logElement.textContent = data;
+        })
+        .catch(error => console.error('เกิดข้อผิดพลาดในการโหลด log:', error));
+    }
+
+    // โหลด log เมื่อหน้า HTML โหลดเสร็จสมบูรณ์
+    document.addEventListener('DOMContentLoaded', loadLog);
+  </script>
+</body>
+</html>

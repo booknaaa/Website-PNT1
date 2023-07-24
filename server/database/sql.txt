@@ -1,0 +1,9 @@
+var connectsql = require('sql');
+
+const connectsql = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  database: 'mydb'
+});
+
+module.exports = connectsql
